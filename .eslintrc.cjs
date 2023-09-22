@@ -11,6 +11,11 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: ['./tsconfig.json'],
+    tsconfigRootDir: __dirname,
+    sourceType: "module",
+  },
   plugins: [
     'react-refresh',
     'prettier'
@@ -19,6 +24,11 @@ module.exports = {
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
+    ],
+    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": [
+      "error",
+      { endOfLine: "auto" }
     ],
   },
 }

@@ -23,6 +23,9 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
+    "plugins": [{
+      "name": "typescript-plugin-css-modules"
+    }]
   },
   "include": [
     "vite.config.ts",
