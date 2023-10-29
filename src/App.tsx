@@ -1,15 +1,18 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { withErrorBoundary } from 'react-error-boundary';
 import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
+import Layout from './layouts/Layout';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
+      </Route>
+    </Routes>
   );
 }
 
@@ -21,4 +24,8 @@ function WrappedApp() {
   );
 }
 
-export default WrappedApp;
+const ErrorBoundaryWrappedApp = withErrorBoundary(WrappedApp, {
+  FallbackComponent: ErrorPage,
+});
+
+export default ErrorBoundaryWrappedApp;
