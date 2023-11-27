@@ -23,3 +23,8 @@ function useLocalStorage<T>(initialValue: T, key: string): ReturnType<T> {
 }
 
 export default useLocalStorage;
+
+// Example: const [value, setValue] = useLocalStorage('', 'name');
+
+// Used as usual useState but with the 'key' on second parametr
+// every time when our setValue works new updated value automatically sets in localStorage
